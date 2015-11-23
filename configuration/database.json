@@ -1,18 +1,18 @@
 {
 
     "development": {
-        "host": "localhost",
-        "database": "db"
+        "host": "db.gentebool.com",
+        "database": "ktp_dev"
     },
 
     "test": {
         "host": "localhost",
-        "database": "db_test"
+        "database": "ktp_test"
     },
 
     "production": {
         "host": "example.com",
-        "database": "db"
+        "database": "ktp"
     }
 
 }
