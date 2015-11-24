@@ -9,25 +9,25 @@ module.exports = function (app) {
             method: 'get',
             url: '/notes',
             action: note.list,
-            cors: true
+            cors: false
         },
         {
             method: 'get',
             url: '/notes/:id',
             action: note.find,
-            cors: true
+            cors: false
         },
         {
             method: 'post',
             url: '/notes',
             action: note.create,
-            cors: true
+            cors: false
         },
         {
             method: 'put',
             url: '/notes/:id',
             action: note.update,
-            cors: true
+            cors: false
         },
         {
             method: 'delete',
