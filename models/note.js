@@ -13,7 +13,10 @@ module.exports = function (app, Schema) {
     };
 
     NoteSchema.statics.findById = function(id) {
-        return q.nbind(this.findOne, this)({_id: id});
+        return q.nbind(this.findOne, this)({_id: id}).then((data) => {
+            if(!data) throw new app.plugins.NoteNotFoundError();
+            return data;
+        });
     };
 
     NoteSchema.statics.insert = function(note) {
@@ -21,16 +24,20 @@ module.exports = function (app, Schema) {
     };
 
     NoteSchema.statics.update = function(id, data){
-        return q.nbind(this.findOneAndUpdate, this)({_id: id}, data).then(() => {
-            return q.nbind(this.findOne, this)({'_id': id});
+        return q.nbind(this.findOne, this)({_id: id}).then((_data) => {
+            if(!_data) throw new app.plugins.NoteNotFoundError();
+            inject(_data, data, Object.keys(data));
+            return q.nbind(_data.save, _data)();
+        }).then(() => {
+            return q.nbind(this.findOne, this)({ _id: id });
         });
-    }
+    };
 
     NoteSchema.statics.delete = function(id){
         return q.nbind(this.findOneAndRemove, this)({_id:id}).then(() => {
             return false;
         });
-    }
+    };
 
     return NoteSchema;
-}
+};
