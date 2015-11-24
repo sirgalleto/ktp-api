@@ -26,7 +26,7 @@ module.exports = function (app, Schema) {
     NoteSchema.statics.update = function(id, data){
         return q.nbind(this.findOne, this)({_id: id}).then((_data) => {
             if(!_data) throw new app.plugins.NoteNotFoundError();
-            inject(_data, data, Object.keys(data));
+            injector(_data, data, Object.keys(data));
             return q.nbind(_data.save, _data)();
         }).then(() => {
             return q.nbind(this.findOne, this)({ _id: id });
