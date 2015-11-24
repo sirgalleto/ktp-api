@@ -31,7 +31,7 @@ module.exports = function (app) {
         },
         {
             method: 'delete',
-            url: '/note/:id',
+            url: '/notes/:id',
             action: note.delete,
             cors: true
         }
