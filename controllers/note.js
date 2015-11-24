@@ -2,13 +2,18 @@
 
 module.exports = function(app){
 
-    var Note = app.dao.Note
-    ,   json = new app.views.Json();
+    var Note    = app.dao.Note
+    ,   Filter  = new app.plugins.MongooseQuery()
+    ,   json    = new app.views.Json();
 
     return {
         list: function(req, res, next){
+            var filter = new Filter(req.query);
             var note = new Note();
-            json.promise(note.list(), res, next);
+            json.promise(
+                note.list(filter.query, filter.fields, filter.projection),
+                res, next
+            );
         },
         find: function(req, res, next){
             var note = new Note();

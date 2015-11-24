@@ -8,8 +8,8 @@ module.exports = function (app, Schema) {
         url: String
     });
 
-    NoteSchema.statics.list = function() {
-        return q.nbind(this.find, this)();
+    NoteSchema.statics.list = function(query, fields, projection) {
+        return q.nbind(this.find, this)(query, fields, projection);
     };
 
     NoteSchema.statics.findById = function(id) {
