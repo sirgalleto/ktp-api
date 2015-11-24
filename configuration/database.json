@@ -11,7 +11,7 @@
     },
 
     "production": {
-        "host": "example.com",
+        "host": "db.gentebool.com",
         "database": "ktp"
     }
 
