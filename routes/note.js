@@ -7,25 +7,25 @@ module.exports = function (app) {
     return [
         {
             method: 'get',
-            url: '/note',
+            url: '/notes',
             action: note.list,
             cors: true
         },
         {
             method: 'get',
-            url: '/note/:id',
+            url: '/notes/:id',
             action: note.find,
             cors: true
         },
         {
             method: 'post',
-            url: '/note',
+            url: '/notes',
             action: note.create,
             cors: true
         },
         {
             method: 'put',
-            url: '/note/:id',
+            url: '/notes/:id',
             action: note.update,
             cors: true
         },
