@@ -10,6 +10,6 @@
         "log": true,
         "_": true,
         "PATH": true,
-        "inject": true
+        "injector": true
     }
 }
