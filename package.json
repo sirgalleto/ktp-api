@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/svzosorio/ktp-api#readme",
   "dependencies": {
+    "bool.js": "^0.4.0",
     "booljs-mongoose": "^0.2.0"
   }
 }
