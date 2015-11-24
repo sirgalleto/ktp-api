@@ -2,7 +2,7 @@
 var booljs = require('bool.js');
 
 // Here is where magic happens
-booljs('co.svzosorio.ktp')
+booljs('co.svzosorio.ktp', ['booljs-mongoose'])
     .setServerLoader('booljs-express')
-    .setDatabaseLoader('booljs-nomodel')
+    .setDatabaseLoader('booljs-mongoose')
     .run();
